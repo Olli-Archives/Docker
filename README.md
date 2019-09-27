@@ -50,4 +50,14 @@ naming is good since you will be running multiple containers at same time.  This
 * you can call for global variables sing the $variableName
 * you can now call docker ps --format=$FORMAT
 * it seems that you could also configure teh docker file in root directory to automate this even further
- 
+
+# volumes
+Volumes allow sharing of data.  This is helpful when sharing data between host and container and containers themselves.
+For example an NGINX container hosts a volume. The volume allows sharing of data weteen the host (computer) and container (NGINX).
+So if we create a document in the host computer, this document will also appear in the NGINX container. Vice versa, if you add a file to NGINX container, it will also appear on the host.
+
+## creating a volume
+* create a file that you want to become a volume.
+* use the tag -v <path of volume you want to use:path on container where you want to copy volume to>
+* Example of this woudl be docker run -d -p8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx
+In the example above, the docker hub describes where one should place a volume to on NGINX 
