@@ -70,7 +70,7 @@ the -it flag mean interactive mode with sudo.  Now you are in the docker and can
 ## Sharing Volumes Between Containers
 Containers running on different ports can share files between the two.  this can be accomplished with a command named --volumes-from.  To see all possibilities that you can do 
 withdocker run type docker run --help
-*docker run --name "name-of-container" --volumes-from "name-of-container-that-has-volume" -d -p 80801:80 nginx
+* docker run --name "name-of-container" --volumes-from "name-of-container-that-has-volume" -d -p 80801:80 nginx
 
 ## References
 This writeup was made from reference to https://www.youtube.com/watch?v=jzbQt2MGf14&t=2421s.  This guy is awesome and definitely worth a listen!
