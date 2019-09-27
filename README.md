@@ -42,6 +42,12 @@ docker ps --help
 The -aq flags gives only the serial number of the container back.
 
 ## Naming Containers
+* docker run --name <enter name> -d -p8080:80 nginx:latest
+naming is good since you will be running multiple containers at same time.  This makes things less confusing.
 
+## Formating with global variables.
+* you can make global variables using export variableName=xxxxx
+* you can call for global variables sing the $variableName
+* you can now call docker ps --format=$FORMAT
+* it seems that you could also configure teh docker file in root directory to automate this even further
  
-
