@@ -60,4 +60,17 @@ So if we create a document in the host computer, this document will also appear 
 * create a file that you want to become a volume.
 * use the tag -v <path of volume you want to use:path on container where you want to copy volume to>
 * Example of this woudl be docker run -d -p8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx
-In the example above, the docker hub describes where one should place a volume to on NGINX 
+In the example above, the docker hub describes where one should place a volume to on NGINX. :ro means read only.
+
+## Modify files inside container
+To do this we need to run docker exec.  this runs a command on a running docker container.
+* docker exec -it <name or id of container> bash
+the -it flag mean interactive mode with sudo.  Now you are in the docker and can cd into files.  Changing things within the volume will also change things on host
+
+## Sharing Volumes Between Containers
+Containers running on different ports can share files between the two.  this can be accomplished with a command named --volumes-from.  To see all possibilities that you can do 
+withdocker run type docker run --help
+*docker run --name "name-of-container" --volumes-from "name-of-container-that-has-volume" -d -p 80801:80 nginx
+
+## References
+This writeup was made from reference to https://www.youtube.com/watch?v=jzbQt2MGf14&t=2421s.  This guy is awesome and definitely worth a listen!
