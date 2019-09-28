@@ -70,7 +70,19 @@ the -it flag mean interactive mode with sudo.  Now you are in the docker and can
 ## Sharing Volumes Between Containers
 Containers running on different ports can share files between the two.  this can be accomplished with a command named --volumes-from.  To see all possibilities that you can do 
 withdocker run type docker run --help
-* docker run --name "name-of-container" --volumes-from "name-of-container-that-has-volume" -d -p 80801:80 nginx
+* docker run --name "name-of-container" --volumes-from "name-of-container-that-has-volume" -d -p 80801:80 ngin
+## Docker File
+Docker files are instructions on how to create images
+* https://docs.docker.com/engine/reference/builder/
+Docker files always start with FROM.  Since we are using NGINX as base we can say
+* FROM NGINX:latest
+Add can be used to add something to the image.  We will copy everyting in the folder that contains the docker
+file and place it to the folder where nginx expects to have all of its html
+* ADD . /usr/share/nginx/html
+## Creating Images
+docker build is used to create image from dockerfile
+* docker build --tag website:latest
+ 
 
-## References
+### References
 This writeup was made from reference to https://www.youtube.com/watch?v=jzbQt2MGf14&t=2421s.  This guy is awesome and definitely worth a listen!
