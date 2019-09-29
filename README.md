@@ -150,6 +150,7 @@ each container running can be tedious.  This is where docker compose comes in.
         * if building from image in docker hub you can just use image:image name
         * volumes: this is handled as a list ( list items start with -)
         * ports: handled as a list (list items start with -)
+        * depends_on: you can give name of other services that this container depends on see line 148.
 
 ## Running Docker Compose
 when you are in the same directory as the docker compose file, run
